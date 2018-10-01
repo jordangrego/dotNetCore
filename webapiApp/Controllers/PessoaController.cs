@@ -1,38 +1,42 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using libApp.Entities;
 using libApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using webapiApp.Controllers.Pattern;
+using webapiApp.Model;
 
 namespace webapiApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PessoaController : ControllerBase
+    public class PessoaController : AbstractController
     {
         PessoaService pessoaService = new PessoaService();
 
         // GET api/values
         [HttpGet, Authorize]
-        public ActionResult<IEnumerable<Pessoa>> Get()
+        public ActionResult<ReturnModel> Get()
         {
-            return this.pessoaService.ListarPessoas().ToArray<Pessoa>();
+            return this.GetSuccessReturn(this.pessoaService.ListarPessoas().ToArray<Pessoa>());
         }
 
         // GET api/values/5
         [HttpGet("{id}"), Authorize]
-        public ActionResult<Pessoa> Get(int id)
+        public ActionResult<ReturnModel> Get(int id)
         {
-            return Ok(this.pessoaService.Get(id));
+            return this.GetSuccessReturn(this.pessoaService.Get(id));
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<ReturnModel> Post([FromBody] Pessoa pessoa)
         {
+            return this.GetSuccessReturn(pessoa);
         }
 
         // PUT api/values/5

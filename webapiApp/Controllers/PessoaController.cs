@@ -13,18 +13,20 @@ namespace webapiApp.Controllers
     [ApiController]
     public class PessoaController : ControllerBase
     {
+        PessoaService pessoaService = new PessoaService();
+
         // GET api/values
         [HttpGet, Authorize]
         public ActionResult<IEnumerable<Pessoa>> Get()
         {
-            return new PessoaService().ListarPessoas().ToArray<Pessoa>();
+            return this.pessoaService.ListarPessoas().ToArray<Pessoa>();
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{id}"), Authorize]
+        public ActionResult<Pessoa> Get(int id)
         {
-            return "value";
+            return Ok(this.pessoaService.Get(id));
         }
 
         // POST api/values

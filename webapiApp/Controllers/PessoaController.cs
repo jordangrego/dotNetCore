@@ -39,6 +39,13 @@ namespace webapiApp.Controllers
             return this.GetSuccessReturn(pessoa);
         }
 
+        // POST api/values
+        [HttpPost("insert"), Authorize]
+        public ActionResult<ReturnModel> Insert([FromBody] Pessoa pessoa)
+        {
+            return this.GetSuccessReturn(pessoa);
+        }
+
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)

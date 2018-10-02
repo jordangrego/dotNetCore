@@ -38,14 +38,14 @@
             "name": "webapiApp",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "buildWebApiApp",
             "program": "${workspaceRoot}/webapiApp/bin/Debug/netcoreapp2.1/webapiApp.dll",
             "args": [],
             "cwd": "${workspaceRoot}/webapiApp",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
-                "enabled": true,
+                "enabled": false,
                 "args": "${auto-detect-url}",
                 "windows": {
                     "command": "cmd.exe",

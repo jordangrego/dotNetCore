@@ -30,7 +30,7 @@ namespace JWT.Controllers
             if (user != null)
             {
                 var tokenString = BuildToken(user);
-                response = Ok(new { token = tokenString });
+                response = Ok(new ReturnModel() { Success = true, Obs = "Success", Data = new { token = tokenString } });
             }
 
             return response;

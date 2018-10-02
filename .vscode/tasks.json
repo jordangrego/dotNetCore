@@ -1,7 +1,6 @@
 {
     "version": "2.0.0",
-    "tasks": [
-        {
+    "tasks": [{
             "label": "build",
             "command": "dotnet",
             "type": "process",
@@ -12,12 +11,12 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build",
+            "label": "buildWebApiApp",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/consoleApp/consoleApp.csproj"
+                "${workspaceFolder}/webapiApp/webapiApp.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

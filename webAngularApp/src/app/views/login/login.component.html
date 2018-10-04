@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-header">
+    login
+  </div>
+  <div class="card-body">
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">username</label>
+      <input type="text" class="form-control form-control-sm" id="username" aria-describedby="emailHelp" placeholder="Enter email"
+        [(ngModel)]="login.username">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">login</label>
+      <input type="password" class="form-control form-control-sm" id="password" aria-describedby="emailHelp"
+        placeholder="Enter email" [(ngModel)]="login.password">
+    </div>
+
+    <button title="Logar" (click)="executeLogin()" class="btn btn-primary">Logar</button>
+  </div>
+</div>

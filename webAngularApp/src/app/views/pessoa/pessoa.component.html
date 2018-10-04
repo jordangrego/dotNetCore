@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-header">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-success btn-sm" (click)="recuperarPessoas()">Recuperar Pessoas</button>
+      <button type="button" class="btn btn-info btn-sm" (click)="limpar()">Limpar</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">IdPessoa</th>
+          <th scope="col">Nome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of dataPessoas">
+          <td>{{ item.idPessoa }}</td>
+          <td>{{ item.nome }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr />
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        Recuperar pelo id
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-3">
+            idPessoa:
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input type="text" class="form-control form-control-sm" id="idPessoa" aria-describedby="emailHelp"
+                placeholder="Enter email" [(ngModel)]="pessoa.idPessoa">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <button type="button" title="Logar" (click)="recuperarPessoa()" class="btn btn-primary btn-sm">Recuperar</button>
+          </div>
+          <div class="col-md-3">
+            {{ pessoa.nome }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

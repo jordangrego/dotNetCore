@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../../services/pessoa.service';
 
 import { PessoaModel } from '../../models/pessoaModel';
+import { StatusEnum } from '../../enums/statusEnum';
 
 @Component({
   selector: 'app-pessoa',
@@ -17,6 +18,8 @@ export class PessoaComponent implements OnInit {
   constructor(private pessoaService: PessoaService) { }
 
   ngOnInit() {
+    // teste de enum
+    // StatusEnum.available
   }
 
   public recuperarPessoas() {

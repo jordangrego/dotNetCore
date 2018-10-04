@@ -10,6 +10,7 @@ import { PessoaComponent } from './views/pessoa/pessoa.component';
 import { LoginComponent } from './views/login/login.component';
 import { MainComponent } from './views/main/main.component';
 import { MenutopComponent } from './views/menutop/menutop.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MenutopComponent } from './views/menutop/menutop.component';
     PessoaComponent,
     LoginComponent,
     MainComponent,
-    MenutopComponent
+    MenutopComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

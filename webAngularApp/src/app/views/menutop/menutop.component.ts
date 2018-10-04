@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-menutop',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenutopComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  sair() {
+    this.loginService.executeLogout();
+    this.router.navigate(['index'], { skipLocationChange: true });
   }
 
 }

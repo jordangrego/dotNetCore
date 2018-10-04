@@ -7,14 +7,11 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'webAngularApp';
 
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.router.navigate(['index'], { skipLocationChange: true });
   }
-
 
 }

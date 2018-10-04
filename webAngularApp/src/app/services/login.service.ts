@@ -24,4 +24,8 @@ export class LoginService {
     });
   }
 
+  public executeLogout() {
+    localStorage.removeItem('token');
+  }
+
 }

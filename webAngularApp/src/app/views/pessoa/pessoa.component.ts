@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../../services/pessoa.service';
 
 import { PessoaModel } from '../../models/pessoaModel';
-import { StatusEnum } from '../../enums/statusEnum';
 
 import { DialogService } from "ng6-bootstrap-modal";
 

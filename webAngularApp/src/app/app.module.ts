@@ -15,6 +15,7 @@ import { MenutopComponent } from './views/menutop/menutop.component';
 
 import { ConfirmComponent } from './components/confirm/confirm.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { FooterComponent } from './views/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AlertComponent } from './components/alert/alert.component';
     MainComponent,
     MenutopComponent,
     ConfirmComponent,
-    AlertComponent
+    AlertComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

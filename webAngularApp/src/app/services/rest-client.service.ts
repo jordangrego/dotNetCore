@@ -29,6 +29,14 @@ export class RestClientService {
     return this.http.post<ReturnModel>(environment.endpoint + urlApi, JSON.stringify(dataRequest), this.getHttpOption());
   }
 
+  public doPut(urlApi: string, dataRequest: any): Observable<ReturnModel> {
+    return this.http.put<ReturnModel>(environment.endpoint + urlApi, JSON.stringify(dataRequest), this.getHttpOption());
+  }
+
+  public doDelete(urlApi: string): Observable<ReturnModel> {
+    return this.http.delete<ReturnModel>(environment.endpoint + urlApi, this.getHttpOption());
+  }
+
   private getHttpOption() {
     let httpOptions = {
       headers: new HttpHeaders({

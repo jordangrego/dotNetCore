@@ -1,55 +1,102 @@
-<div class="card">
-  <div class="card-header">
-    <div class="btn-group" role="group">
-      <button type="button" class="btn btn-success btn-sm" (click)="recuperarPessoas()">Recuperar Pessoas</button>
-      <button type="button" class="btn btn-info btn-sm" (click)="limpar()">Limpar</button>
-    </div>
-  </div>
-  <div class="card-body">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">IdPessoa</th>
-          <th scope="col">Nome</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of dataPessoas">
-          <td>{{ item.idPessoa }}</td>
-          <td>{{ item.nome }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
 
-<hr />
 
 <div class="row">
-  <div class="col-md-12">
-    <div class="card">
-      <div class="card-header">
-        Recuperar pelo id
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-3">
-            idPessoa:
+  <div class="col-md-6">
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            Recuperar pelo id
           </div>
-          <div class="col-md-3">
-            <div class="form-group">
-              <input type="text" class="form-control form-control-sm" id="idPessoa" aria-describedby="emailHelp"
-                placeholder="Enter email" [(ngModel)]="pessoa.idPessoa">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-3">
+                idPessoa:
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-sm" id="idPessoa" aria-describedby="emailHelp"
+                    placeholder="id da pessoa" [(ngModel)]="pessoa.idPessoa">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <button type="button" title="Logar" (click)="recuperarPessoa()" class="btn btn-primary btn-sm">Recuperar</button>
+              </div>
+              <div class="col-md-3">
+                {{ pessoa.nome }}
+              </div>
             </div>
-          </div>
-          <div class="col-md-3">
-            <button type="button" title="Logar" (click)="recuperarPessoa()" class="btn btn-primary btn-sm">Recuperar</button>
-          </div>
-          <div class="col-md-3">
-            {{ pessoa.nome }}
           </div>
         </div>
       </div>
     </div>
+  
+    
+    <div class="row mt-2">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            Inserir Pessoa
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Nome da Pessoa:</label>
+                  <input type="text" class="form-control form-control-sm" id="idPessoa" aria-describedby="nome"
+                    placeholder="Nome da Pessoa" [(ngModel)]="pessoaInsert.nome">
+                </div>
+              </div>
+              
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" title="Logar" (click)="inserirPessoa()" class="btn btn-primary btn-sm">Inserir</button>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
   </div>
+  <div class="col-md-6"><div class="card">
+    <div class="card-header">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-sm btn-secondary" (click)="recuperarPessoas()">Recuperar Pessoas</button>
+        <button type="button" class="btn btn-sm btn-secondary" (click)="limpar()">Limpar</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pessoa of dataPessoas">
+            <td>{{ pessoa.nome }}</td>
+            <td><button type="button" class="btn btn-danger btn-sm float-right" (click)="excluirPessoa(pessoa)">Excluir</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>
+</div>
+
+
+
+
+
+
+
+

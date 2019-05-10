@@ -33,10 +33,10 @@ namespace webapiApp.Controllers
         }
 
         // POST api/values
-        [HttpPost]
+        [HttpPost, Authorize]
         public ActionResult<ReturnModel> Post([FromBody] Pessoa pessoa)
         {
-            return this.GetSuccessReturn(pessoa);
+            return this.GetSuccessReturn(this.pessoaService.Insert(pessoa));
         }
 
         // POST api/values
@@ -56,6 +56,7 @@ namespace webapiApp.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            this.GetSuccessReturn(this.pessoaService.Delete(id));
         }
     }
 }

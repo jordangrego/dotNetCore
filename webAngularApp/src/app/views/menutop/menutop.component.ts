@@ -20,4 +20,12 @@ export class MenutopComponent implements OnInit {
     this.router.navigate(['index'], { skipLocationChange: true });
   }
 
+  isLoggedIn() : boolean {
+    if(localStorage.getItem('token') != null && localStorage.getItem('token').length > 0  ) {
+      return true;
+    }
+
+    return false;
+  }
+
 }

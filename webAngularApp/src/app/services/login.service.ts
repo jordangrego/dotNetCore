@@ -13,6 +13,7 @@ export class LoginService {
 
   public executeLogin(login: LoginModel) {
     this.restClientService.doPostNoAuth('token', login).subscribe(resp => {
+      console.log(resp.success);
       if (resp.success) {
         console.log('token: [' + resp.data.token + ']');
         localStorage.setItem('token', resp.data.token);

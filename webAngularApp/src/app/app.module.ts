@@ -5,11 +5,15 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule, routingComponents } from './app.routing';
 
+import { BootstrapModalModule } from 'ng6-bootstrap-modal';
+
 import { AppComponent } from './app.component';
 import { PessoaComponent } from './views/pessoa/pessoa.component';
 import { LoginComponent } from './views/login/login.component';
 import { MainComponent } from './views/main/main.component';
 import { MenutopComponent } from './views/menutop/menutop.component';
+
+import { ConfirmComponent } from './components/confirm/confirm.component';
 import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
@@ -20,15 +24,21 @@ import { AlertComponent } from './components/alert/alert.component';
     LoginComponent,
     MainComponent,
     MenutopComponent,
+    ConfirmComponent,
     AlertComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BootstrapModalModule//.forRoot({container:document.body})
   ],
   providers: [],
+  entryComponents: [
+    ConfirmComponent,
+    AlertComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

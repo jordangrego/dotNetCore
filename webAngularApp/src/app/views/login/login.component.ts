@@ -18,22 +18,21 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router) { }
 
   login: LoginModel = {
-    username: '',
-    password: ''
+    username: 'mario',
+    password: 'secret'
   };
 
   ngOnInit() {
   }
 
   public executeLogin() {
+    
     this.loginService.executeLogin(this.login);
     if (localStorage.getItem('token') != '') {
-      this.router.navigate(['pessoa'], { skipLocationChange: true });
+      this.router.navigate(['home'], { skipLocationChange: true });
     } else {
       console.log('nao logado');
-      this.alertComponent.showModal();
     }
-    //this.alertComponent.showModal();
   }
 
 }

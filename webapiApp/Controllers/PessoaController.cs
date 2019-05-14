@@ -41,8 +41,10 @@ namespace webapiApp.Controllers {
         }
 
         // PUT api/values/5
-        [HttpPut ("{id}")]
-        public void Put (int id, [FromBody] string value) { }
+        [HttpPut, Authorize]
+        public ActionResult<ReturnModel> Put ([FromBody] Pessoa pessoa) {
+            return this.GetSuccessReturn(this.pessoaService.Update(pessoa));
+        }
 
         // DELETE api/values/5
         [HttpDelete ("{id}")]

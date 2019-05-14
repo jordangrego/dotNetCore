@@ -54,6 +54,19 @@ namespace libApp.Services {
             return pessoa;
         }
 
+        public object Update(Pessoa pessoa)
+        {
+            List<Pessoa> listaPessoa = this.ListarPessoas().ToList<Pessoa>();
+            Pessoa pessoaUpdate = listaPessoa.FirstOrDefault(x => x.IdPessoa == pessoa.IdPessoa);
+            if (pessoaUpdate != null)
+            {
+                pessoaUpdate.IdPessoa = pessoa.IdPessoa;
+                pessoaUpdate.Nome = pessoa.Nome;
+            }
+            this.GravaPessoas(listaPessoa);
+            return pessoaUpdate;
+        }
+
         private void GravaPessoas (List<Pessoa> listaPessoa) {
             Base baseDB = UtilBase.RecuperarBase ();
             baseDB.ListaPessoa = listaPessoa;

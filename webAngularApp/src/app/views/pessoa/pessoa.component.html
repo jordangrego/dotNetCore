@@ -77,13 +77,13 @@
         <thead>
           <tr>
             <th scope="col">Nome</th>
-            <th scope="col float-right">Ações</th>
+            <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let pessoa of dataPessoas">
             <td>{{ pessoa.nome }}</td>
-            <td><button type="button" class="btn btn-danger btn-sm float-right" (click)="excluirPessoa(pessoa)">Excluir</button></td>
+            <td><button type="button" class="btn btn-danger btn-sm" (click)="excluirPessoa(pessoa)">Excluir</button></td>
           </tr>
         </tbody>
       </table>

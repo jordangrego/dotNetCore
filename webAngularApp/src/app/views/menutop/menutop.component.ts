@@ -1,31 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
 
-import { LoginService } from '../../services/login.service';
+import { LoginService } from "../../services/login.service";
 
 @Component({
-  selector: 'app-menutop',
-  templateUrl: './menutop.component.html',
-  styleUrls: ['./menutop.component.css']
+  selector: "app-menutop",
+  templateUrl: "./menutop.component.html",
+  styleUrls: ["./menutop.component.css"]
 })
 export class MenutopComponent implements OnInit {
+  constructor(private loginService: LoginService, private router: Router) {}
 
-  constructor(private loginService: LoginService, private router: Router) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   sair() {
     this.loginService.executeLogout();
-    this.router.navigate(['index'], { skipLocationChange: true });
+    this.router.navigate(["index"], { skipLocationChange: true });
   }
 
-  isLoggedIn() : boolean {
-    if(localStorage.getItem('token') != null && localStorage.getItem('token').length > 0  ) {
+  isLoggedIn(): boolean {
+    if (
+      localStorage.getItem("token") != null &&
+      localStorage.getItem("token").length > 0
+    ) {
       return true;
     }
 
     return false;
   }
-
 }

@@ -12,5 +12,6 @@ namespace libApp.Entities
     public class Base
     {
         public List<Pessoa> ListaPessoa { get; set; }
+        public List<Cliente> ListaClientes { get; set; }
     }
 }

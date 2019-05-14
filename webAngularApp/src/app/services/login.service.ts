@@ -1,24 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-import { RestClientService } from './rest-client.service';
+import { RestClientService } from "./rest-client.service";
 
-import { LoginModel } from '../models/loginModel';
+import { LoginModel } from "../models/loginModel";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class LoginService {
-
-  constructor(private restClientService: RestClientService) { }
+  constructor(private restClientService: RestClientService) {}
 
   public executeLogin(login: LoginModel) {
-    this.restClientService.doPostNoAuth('token', login).subscribe(resp => {
+    this.restClientService.doPostNoAuth("token", login).subscribe(resp => {
       console.log(resp.success);
       if (resp.success) {
-        console.log('token: [' + resp.data.token + ']');
-        localStorage.setItem('token', resp.data.token);
+        console.log("token: [" + resp.data.token + "]");
+        localStorage.setItem("token", resp.data.token);
       } else {
-        localStorage.removeItem('token');
+        localStorage.removeItem("token");
       }
 
       return resp.success;
@@ -26,7 +25,6 @@ export class LoginService {
   }
 
   public executeLogout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
   }
-
 }

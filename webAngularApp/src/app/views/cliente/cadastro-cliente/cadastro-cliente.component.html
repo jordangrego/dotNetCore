@@ -52,10 +52,12 @@
               <div class="card-body">
                 <div [class.invisible]="activeTabIndex != 0">
                   <app-endereco [(enderecosCliente)]="cliente.listaEnderecos" [(listaUf)]="listaUf"
-                    (removeEndereco)="removeEndereco($event)"></app-endereco>
+                    (removeEndereco)="removeEndereco($event)" (insertEndereco)="insertEndereco($event)"
+                    (updateEndereco)="updateEndereco($event)"></app-endereco>
                 </div>
                 <div [class.invisible]="activeTabIndex != 1">
-                  <app-telefone [(telefonesCliente)]="cliente.listaTelefones"></app-telefone>
+                  <app-telefone [(telefonesCliente)]="cliente.listaTelefones" (removeTelefone)="removeTelefone($event)"
+                    (insertTelefone)="insertTelefone($event)" (updateTelefone)="updateTelefone($event)"></app-telefone>
                 </div>
               </div>
             </div>
@@ -71,8 +73,4 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="alert alert-info" role="alert">
-  <pre>{{ cliente | json }}</pre>
 </div>

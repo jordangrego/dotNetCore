@@ -26,7 +26,6 @@ export class EnderecoComponent implements OnInit {
 
   public enderecoForm: FormGroup;
   enderecoEdit: EnderecoModel;
-
   isEdit : boolean;
   
   constructor(
@@ -45,23 +44,20 @@ export class EnderecoComponent implements OnInit {
       ]),
       numeroLogradouro: this.formBuilder.control({ value: '' }, [
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(1)
       ]),
-      complemento: this.formBuilder.control({ value: '' }, [
-        Validators.required,
-        Validators.minLength(5)
-      ]),
+      complemento: this.formBuilder.control({ value: '' }),
       municipio: this.formBuilder.control({ value: '' }, [
         Validators.required,
         Validators.minLength(5)
       ]),
       uf: this.formBuilder.control({ value: '' }, [
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(2)
       ]),
       cep: this.formBuilder.control({ value: '' }, [
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(8)
       ])
     });
   }
@@ -69,9 +65,21 @@ export class EnderecoComponent implements OnInit {
   novoEndereco() {
     this.isEdit = true;
     this.enderecoEdit = new EnderecoModel();
+    this.enderecoForm.reset();
   }
 
-  inserirEndereco() {
+  editarEndereco(endereco: EnderecoModel) {
+    this.isEdit = true;
+    this.enderecoForm.reset();
+    this.enderecoEdit = JSON.parse(JSON.stringify(endereco));;
+  }
+
+  salvarEndereco() {
+    if (this.enderecoEdit.idEndereco == null || this.enderecoEdit.idEndereco === undefined) {
+      this.insertEndereco.emit(this.enderecoEdit);
+    } else {
+      this.updateEndereco.emit(this.enderecoEdit);
+    }
     this.isEdit = false;
     this.enderecoEdit = new EnderecoModel();
   }

@@ -22,7 +22,7 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-          <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Complemento">
+          <app-input-container errorMessage="" label="Complemento">
             <input class="form-control" formControlName="complemento" placeholder="Complemento" autocomplete="off"
               [(ngModel)]="enderecoEdit.complemento">
           </app-input-container>
@@ -44,9 +44,9 @@
       <div class="col-md-2">
         <div class="form-group">
           <label>UF</label>
-          <select class="form-control">
-            <option>Selecione</option>
-            <option *ngFor="let uf of listaUf" (value)="uf">{{uf}}</option>
+          <select class="form-control" [(ngModel)]="enderecoEdit.uf" formControlName="uf">
+            <option value="">Selecione</option>
+            <option *ngFor="let uf of listaUf" (value)="uf" >{{uf}}</option>
           </select>
         </div>
       </div>
@@ -55,7 +55,7 @@
       <div class="col-md">
         <button type="button" class="btn btn-danger btn-sm float-right ml-1" (click)="isEdit=false">Cancelar<i
             class="fa fa-cancel"></i></button>
-        <button type="button" class="btn btn-info btn-sm float-right" (click)="inserirEndereco()">Salvar
+        <button type="button" class="btn btn-info btn-sm float-right" (click)="salvarEndereco()" [disabled]="!enderecoForm.valid">Salvar
           Endereço&nbsp;<i class="fa fa-pencil-square"></i></button>
       </div>
     </div>

@@ -128,6 +128,40 @@ export class CadastroClienteComponent implements OnInit {
     this.showAlert('Endereço removido');
   }
 
+  insertEndereco(endereco : EnderecoModel) {
+    endereco.idEndereco = UUID.UUID();
+    this.cliente.listaEnderecos.push(endereco);
+    this.showAlert('Endereço inserido');
+  }
+
+  updateEndereco(endereco : EnderecoModel) {
+    let indexEndereco = this.cliente.listaEnderecos.map(function(x) {return x.idEndereco; }).indexOf(endereco.idEndereco);
+    console.log(indexEndereco);
+    this.cliente.listaEnderecos[indexEndereco] = endereco;
+    this.showAlert('Endereço alterado');
+  }
+
+  removeTelefone(telefone : TelefoneModel) {
+    console.log(telefone.idTelefone);
+    this.cliente.listaTelefones = this.cliente.listaTelefones.filter(function(obj) {
+      return obj.idTelefone !== telefone.idTelefone;
+    });
+
+    this.showAlert('Telefone removido');
+  }
+
+  insertTelefone(telefone : TelefoneModel) {
+    telefone.idTelefone = UUID.UUID();
+    this.cliente.listaTelefones.push(telefone);
+    this.showAlert('Telefone inserido');
+  }
+
+  updateTelefone(telefone : TelefoneModel) {
+    let indexTelefone = this.cliente.listaTelefones.map(function(x) {return x.idTelefone; }).indexOf(telefone.idTelefone);
+    this.cliente.listaTelefones[indexTelefone] = telefone;
+    this.showAlert('Telefone alterado');
+  }
+
   showAlert(mensagem: string) {
     let disposable = this.dialogService
       .addDialog(AlertComponent, {

@@ -1,8 +1,9 @@
 export class EnderecoModel {
-    idEndereco : number;
+    idEndereco : string;
     logradouro : string;
     numeroLogradouro : string;
     complemento : string;
+    municipio : string;
     uf : string;
     cep : string;
 }

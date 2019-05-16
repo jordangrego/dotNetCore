@@ -1,11 +1,14 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+
+import {CommonModule} from '@angular/common'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 import { AppRoutingModule, routingComponents } from "./app.routing";
 
 import { BootstrapModalModule } from "ng6-bootstrap-modal";
+import { MomentModule } from 'angular2-moment';
 
 import { AppComponent } from "./app.component";
 import { PessoaComponent } from "./views/pessoa/pessoa.component";
@@ -17,6 +20,11 @@ import { ConfirmComponent } from "./components/confirm/confirm.component";
 import { AlertComponent } from "./components/alert/alert.component";
 import { FooterComponent } from "./views/footer/footer.component";
 import { ClienteComponent } from "./views/cliente/cliente.component";
+import { InputComponent } from './input/input.component';
+import { RadioComponent } from './radio/radio.component';
+import { CadastroClienteComponent } from './views/cliente/cadastro-cliente/cadastro-cliente.component';
+import { EnderecoComponent } from './views/cliente/cadastro-cliente/endereco/endereco.component';
+import { TelefoneComponent } from './views/cliente/cadastro-cliente/telefone/telefone.component';
 
 @NgModule({
   declarations: [
@@ -29,14 +37,21 @@ import { ClienteComponent } from "./views/cliente/cliente.component";
     ConfirmComponent,
     AlertComponent,
     FooterComponent,
-    ClienteComponent
+    ClienteComponent,
+    InputComponent,
+    RadioComponent,
+    CadastroClienteComponent,
+    EnderecoComponent,
+    TelefoneComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    BootstrapModalModule
+    BootstrapModalModule,
+    MomentModule
   ],
   providers: [],
   entryComponents: [ConfirmComponent, AlertComponent],

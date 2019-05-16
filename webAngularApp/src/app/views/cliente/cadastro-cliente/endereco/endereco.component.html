@@ -1,0 +1,98 @@
+<div class="row" *ngIf="!isEdit">
+  <div class="col-md">
+    <button type="button" class="btn btn-info btn-sm float-right" (click)="novoEndereco()">Novo Endereço&nbsp;<i
+        class="fa fa-pencil-square"></i></button>
+  </div>
+</div>
+<form [formGroup]="enderecoForm" novalidate>
+  <div *ngIf="isEdit">
+    <div class="row">
+      <div class="col-md-9">
+        <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
+          <input class="form-control" formControlName="logradouro" placeholder="Logradouro" autocomplete="off"
+            [(ngModel)]="enderecoEdit.logradouro">
+        </app-input-container>
+      </div>
+      <div class="col-md-3">
+          <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Número">
+              <input class="form-control" formControlName="numeroLogradouro" placeholder="Número" autocomplete="off"
+                [(ngModel)]="enderecoEdit.numeroLogradouro">
+            </app-input-container>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+          <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Complemento">
+            <input class="form-control" formControlName="complemento" placeholder="Complemento" autocomplete="off"
+              [(ngModel)]="enderecoEdit.complemento">
+          </app-input-container>
+        </div>
+        <div class="col-md-6">
+            <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Município">
+                <input class="form-control" formControlName="municipio" placeholder="Município" autocomplete="off"
+                  [(ngModel)]="enderecoEdit.municipio">
+              </app-input-container>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-6">
+          <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="CEP">
+              <input class="form-control" formControlName="cep" placeholder="CEP" autocomplete="off"
+                [(ngModel)]="enderecoEdit.cep">
+            </app-input-container>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>UF</label>
+          <select class="form-control">
+            <option>Selecione</option>
+            <option *ngFor="let uf of listaUf" (value)="uf">{{uf}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md">
+        <button type="button" class="btn btn-danger btn-sm float-right ml-1" (click)="isEdit=false">Cancelar<i
+            class="fa fa-cancel"></i></button>
+        <button type="button" class="btn btn-info btn-sm float-right" (click)="inserirEndereco()">Salvar
+          Endereço&nbsp;<i class="fa fa-pencil-square"></i></button>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="row mt-1">
+  <div class="col-md">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" class="invisible">idEndereco</th>
+          <th scope="col">Logradouro</th>
+          <th scope="col">Número</th>
+          <th scope="col">Compl.</th>
+          <th scope="col">Município</th>
+          <th scope="col">UF</th>
+          <th scope="col">CEP</th>
+          <th scope="col" *ngIf="!isEdit">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let endereco of enderecosCliente">
+          <td class="invisible">{{endereco.idEndereco}}</td>
+          <td>{{endereco.logradouro}}</td>
+          <td>{{endereco.numeroLogradouro}}</td>
+          <td>{{endereco.complemento}}</td>
+          <td>{{endereco.municipio}}</td>
+          <td>{{endereco.uf}}</td>
+          <td>{{endereco.cep}}</td>
+          <td *ngIf="!isEdit">
+            <button type="button" class="btn btn-info btn-sm mr-1" (click)="editarEndereco(endereco)"><i
+                class="fa fa-edit"></i></button>
+            <button type="button" class="btn btn-info btn-sm" (click)="excluirEndereco(endereco)"><i
+                class="fa fa-remove"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

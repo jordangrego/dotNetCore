@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using libApp.Entities;
@@ -23,25 +22,43 @@ namespace libApp.Services
 
         public Cliente Insert(Cliente cliente)
         {
-            cliente.IdCliente = this.RecuperaProxIdPessoa();
+            cliente.IdCliente = this.RecuperaProxIdCliente();
             List<Cliente> listaCliente  = UtilBase.RecuperarBase().ListaClientes;
             listaCliente.Add(cliente);
             this.GravaCliente(listaCliente);
             return cliente;
         }
 
-        private int RecuperaProxIdPessoa()
+        private int RecuperaProxIdCliente()
         {
-            List<Pessoa> lista = UtilBase.RecuperarBase().ListaPessoa;
+            List<Cliente> lista = UtilBase.RecuperarBase().ListaClientes;
 
             if (lista != null && lista.Count > 0)
             {
-                return lista.Select(l => l.IdPessoa).Max() + 1;
+                return lista.Select(l => l.IdCliente).Max() + 1;
             }
             else
             {
                 return 1;
             }
+        }
+
+        public object Update(Cliente cliente)
+        {
+            List<Cliente> listaClientes = this.ListarCliente().ToList<Cliente>();
+            Cliente clienteUpdate = listaClientes.FirstOrDefault(x => x.IdCliente == cliente.IdCliente);
+            if (clienteUpdate != null)
+            {
+                clienteUpdate.IdCliente = cliente.IdCliente;
+                clienteUpdate.Nome = cliente.Nome;
+                clienteUpdate.DataCadastro = cliente.DataCadastro;
+                clienteUpdate.CpfCnpj = cliente.CpfCnpj;
+
+                clienteUpdate.ListaEnderecos = cliente.ListaEnderecos;
+                clienteUpdate.ListaTelefones = cliente.ListaTelefones;
+            }
+            this.GravaCliente(listaClientes);
+            return clienteUpdate;
         }
 
         public Cliente Delete(int id)

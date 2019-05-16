@@ -1,0 +1,78 @@
+<div class="row mb-1">
+  <div class="col-md">
+    <a class="btn btn-info float-right" [routerLink]="['/cliente']" skipLocationChange>Voltar</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md">
+    <div class="card mb-3">
+      <div class="card-header">
+        Cadastro Cliente
+      </div>
+      <div class="card-body">
+        <form [formGroup]="clienteForm" novalidate>
+          <div class="row">
+            <div class="col-md">
+              <app-input-container errorMessage="" label="Data Cadastro">
+                <input class="form-control" formControlName="cadastro" placeholder="Data Cadastro" autocomplete="off"
+                  [value]="cliente.dataCadastro | amDateFormat:'DD/MM/YYYY'">
+              </app-input-container>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
+                <input class="form-control" formControlName="name" placeholder="Nome" autocomplete="off"
+                  [(ngModel)]="cliente.nome">
+              </app-input-container>
+            </div>
+            <div class="col-md-6">
+              <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="CpfCnpj">
+                <input class="form-control" formControlName="cpfcnpj" placeholder="CPF - CNPJ" autocomplete="off"
+                  [(ngModel)]="cliente.cpfCnpj">
+              </app-input-container>
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-md">
+            <div class="card ml-1 mr-1">
+              <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link hand-pointer" [class.active]="activeTabIndex == 0"
+                      (click)="activeTabIndex = 0">Endereço</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link hand-pointer" [class.active]="activeTabIndex == 1"
+                      (click)="activeTabIndex = 1">Telefone</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body">
+                <div [class.invisible]="activeTabIndex != 0">
+                  <app-endereco [(enderecosCliente)]="cliente.listaEnderecos" [(listaUf)]="listaUf"
+                    (removeEndereco)="removeEndereco($event)"></app-endereco>
+                </div>
+                <div [class.invisible]="activeTabIndex != 1">
+                  <app-telefone [(telefonesCliente)]="cliente.listaTelefones"></app-telefone>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-footer text-muted">
+        <button (click)="checkClient(clienteForm.value)" class="btn btn-primary pull-right"
+          [disabled]="!clienteForm.valid">
+          <i class="fa fa-floppy-o"></i> Salvar Cliente
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <pre>{{ cliente | json }}</pre>
+</div>

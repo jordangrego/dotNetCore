@@ -39,3 +39,11 @@ html {
   code {
     font-size: 80%;
   }
+
+  .invisible {
+    display: none
+  }
+
+  .hand-pointer:hover {
+    cursor: pointer;
+  }

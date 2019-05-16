@@ -41,8 +41,10 @@ namespace webapiApp.Controllers {
         }
 
         // PUT api/values/5
-        [HttpPut ("{id}")]
-        public void Put (int id, [FromBody] string value) { }
+        [HttpPut]
+        public ActionResult<ReturnModel> Put (int id, [FromBody] Cliente cliente) {
+            return this.GetSuccessReturn(this.clienteService.Update(cliente));
+        }
 
         // DELETE api/values/5
         [HttpDelete ("{id}")]

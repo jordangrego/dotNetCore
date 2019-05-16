@@ -1,5 +1,5 @@
 export class TelefoneModel {
-    idTelefone : number;
+    idTelefone : string;
     codPais : string;
     ddd : string;
     numeroTelefone : string;

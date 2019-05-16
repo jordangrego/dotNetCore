@@ -32,7 +32,6 @@ export class PessoaComponent implements OnInit {
   public recuperarPessoas() {
     if (localStorage.getItem('token') != null) {
       this.pessoaService.getPessoas().subscribe(data => {
-        console.log(JSON.stringify(data));
         this.dataPessoas = data.data
       });
     } else {

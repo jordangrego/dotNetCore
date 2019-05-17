@@ -20,11 +20,11 @@
         </app-input-container>
       </div>
       <div class="col-md-3">
-          <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Número">
-            <input class="form-control" formControlName="numeroTelefone" placeholder="numero" autocomplete="off"
-              [(ngModel)]="telefoneEdit.numeroTelefone">
-          </app-input-container>
-        </div>
+        <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Número">
+          <input class="form-control" formControlName="numeroTelefone" placeholder="numero" autocomplete="off"
+            [(ngModel)]="telefoneEdit.numeroTelefone">
+        </app-input-container>
+      </div>
     </div>
     <div class="row">
       <div class="col-md">
@@ -32,17 +32,18 @@
             class="fa fa-cancel"></i></button>
         <button type="button" class="btn btn-info btn-sm float-right" (click)="salvarTelefone()"
           [disabled]="!telefoneForm.valid">Salvar
-          Endereço&nbsp;<i class="fa fa-pencil-square"></i></button>
+          Telefone&nbsp;<i class="fa fa-pencil-square"></i></button>
       </div>
     </div>
   </div>
 </form>
 <div class="row mt-1">
   <div class="col-md">
-    <table class="table table-striped">
+    <table class="table table-striped table-hover">
+      <caption>Lista de Telefones</caption>
       <thead class="thead-dark">
         <tr>
-          <th scope="col" class="invisible">idEndereco</th>
+          <th scope="col" class="invisible">idTelefone</th>
           <th scope="col">Cód. País</th>
           <th scope="col">DDD</th>
           <th scope="col">Número</th>

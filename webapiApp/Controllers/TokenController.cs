@@ -1,15 +1,14 @@
-using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 using webapiApp.Model;
 
-namespace JWT.Controllers {
+namespace JWT.Controllers
+{
     [Route ("api/[controller]")]
     public class TokenController : Controller {
         private IConfiguration _config;

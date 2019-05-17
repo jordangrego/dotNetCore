@@ -3,10 +3,13 @@
     <div class="card">
       <div class="card-header">
         <a class="btn btn-primary" [routerLink]="['/cadastro-cliente']" skipLocationChange>Novo Cliente</a>
+        <button type="button" class="btn btn-info float-right" (click)="recuperarClientes()"><i
+            class="fa fa-refresh"></i></button>
       </div>
       <div class="card-body">
-        <table class="table">
-          <thead>
+        <table class="table table-striped table-hover">
+          <caption>Lista de Clientes</caption>
+          <thead class="thead-dark">
             <tr>
               <th scope="col">Nome</th>
               <th scope="col">CPF/CNPJ</th>

@@ -1,12 +1,13 @@
+using libApp.Entities;
+using libApp.Util;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using libApp.Entities;
-using libApp.Util;
 
-namespace libApp.Services {
+namespace libApp.Services
+{
     public class PessoaService {
         public IList<Pessoa> ListarPessoas () {
 

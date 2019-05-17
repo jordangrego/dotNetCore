@@ -1,16 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using libApp.Entities;
 using libApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using webapiApp.Controllers.Pattern;
 using webapiApp.Model;
 
-namespace webapiApp.Controllers {
+namespace webapiApp.Controllers
+{
     [Route ("api/[controller]")]
     [ApiController]
     public class PessoaController : AbstractController {

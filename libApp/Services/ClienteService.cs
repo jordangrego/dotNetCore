@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
 using libApp.Entities;
-using System.Linq;
 using libApp.Util;
-using System.IO;
-using System.Diagnostics;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace libApp.Services
 {

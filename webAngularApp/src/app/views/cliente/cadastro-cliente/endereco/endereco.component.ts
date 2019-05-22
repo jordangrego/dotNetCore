@@ -17,6 +17,9 @@ import { EnderecoModel } from "src/app/models/enderecoModel";
   styleUrls: ["./endereco.component.css"]
 })
 export class EnderecoComponent implements OnInit {
+
+  public maskCep = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];  
+
   @Input() enderecosCliente: EnderecoModel[];
   @Output() removeEndereco = new EventEmitter();
   @Output() updateEndereco = new EventEmitter();

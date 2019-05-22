@@ -29,8 +29,12 @@ import { UfService } from "src/app/services/uf.service";
 export class CadastroClienteComponent implements OnInit {
   public activeTabIndex: number = 0;
   private cliente: ClienteModel;
-  private listaUf : string[] = [];
+  private listaUf: string[] = [];
   public clienteForm: FormGroup;
+  private listaTipoPessoa = [{ idTipo: 'F', desc: 'Física' }, { idTipo: 'J', desc: 'Jurídica' },];
+
+  public maskCpf = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
+  public maskCnpj = [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
 
   constructor(
     private clienteService: ClienteService,
@@ -39,15 +43,16 @@ export class CadastroClienteComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private ufService: UfService
-  ) {}
+  ) { }
 
   ngOnInit() {
-    
+
     this.recuperarUfs();
     this.cliente = new ClienteModel();
     this.cliente.idCliente = 0;
     this.cliente.nome = '';
     this.cliente.cpfCnpj = '';
+    this.cliente.tipoPessoa = '';
     this.cliente.dataCadastro = new Date();
     this.cliente.listaEnderecos = [];
     this.cliente.listaTelefones = [];
@@ -57,12 +62,18 @@ export class CadastroClienteComponent implements OnInit {
         Validators.required,
         Validators.minLength(5)
       ]),
-      cpfcnpj: this.formBuilder.control({ value: '' }, [
+      cpfCnpj: this.formBuilder.control({ value: '' }, [
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(14)
+      ]),
+      tipoPessoa: this.formBuilder.control({ value: '' }, [
+        Validators.required,
+        Validators.minLength(1)
       ]),
       cadastro: this.formBuilder.control({ value: '', disabled: true })
     });
+
+    this.clienteForm.reset();
 
     let idCliente: number = 0;
     if (
@@ -77,7 +88,7 @@ export class CadastroClienteComponent implements OnInit {
     }
   }
 
-  public recuperarUfs() : void {
+  public recuperarUfs(): void {
     this.ufService.getUfs().subscribe(data => {
       this.listaUf = data.data;
     });
@@ -117,9 +128,9 @@ export class CadastroClienteComponent implements OnInit {
     }, 30000);
   }
 
-  removeEndereco(endereco : EnderecoModel) {
+  removeEndereco(endereco: EnderecoModel) {
     console.log(endereco.idEndereco);
-    this.cliente.listaEnderecos = this.cliente.listaEnderecos.filter(function(obj) {
+    this.cliente.listaEnderecos = this.cliente.listaEnderecos.filter(function (obj) {
       return obj.idEndereco !== endereco.idEndereco;
     });
 
@@ -128,36 +139,36 @@ export class CadastroClienteComponent implements OnInit {
     this.showAlert('Endereço removido');
   }
 
-  insertEndereco(endereco : EnderecoModel) {
+  insertEndereco(endereco: EnderecoModel) {
     endereco.idEndereco = UUID.UUID();
     this.cliente.listaEnderecos.push(endereco);
     this.showAlert('Endereço inserido');
   }
 
-  updateEndereco(endereco : EnderecoModel) {
-    let indexEndereco = this.cliente.listaEnderecos.map(function(x) {return x.idEndereco; }).indexOf(endereco.idEndereco);
+  updateEndereco(endereco: EnderecoModel) {
+    let indexEndereco = this.cliente.listaEnderecos.map(function (x) { return x.idEndereco; }).indexOf(endereco.idEndereco);
     console.log(indexEndereco);
     this.cliente.listaEnderecos[indexEndereco] = endereco;
     this.showAlert('Endereço alterado');
   }
 
-  removeTelefone(telefone : TelefoneModel) {
+  removeTelefone(telefone: TelefoneModel) {
     console.log(telefone.idTelefone);
-    this.cliente.listaTelefones = this.cliente.listaTelefones.filter(function(obj) {
+    this.cliente.listaTelefones = this.cliente.listaTelefones.filter(function (obj) {
       return obj.idTelefone !== telefone.idTelefone;
     });
 
     this.showAlert('Telefone removido');
   }
 
-  insertTelefone(telefone : TelefoneModel) {
+  insertTelefone(telefone: TelefoneModel) {
     telefone.idTelefone = UUID.UUID();
     this.cliente.listaTelefones.push(telefone);
     this.showAlert('Telefone inserido');
   }
 
-  updateTelefone(telefone : TelefoneModel) {
-    let indexTelefone = this.cliente.listaTelefones.map(function(x) {return x.idTelefone; }).indexOf(telefone.idTelefone);
+  updateTelefone(telefone: TelefoneModel) {
+    let indexTelefone = this.cliente.listaTelefones.map(function (x) { return x.idTelefone; }).indexOf(telefone.idTelefone);
     this.cliente.listaTelefones[indexTelefone] = telefone;
     this.showAlert('Telefone alterado');
   }
@@ -169,7 +180,7 @@ export class CadastroClienteComponent implements OnInit {
         message: mensagem,
         exception: null
       })
-      .subscribe(isConfirmed => {});
+      .subscribe(isConfirmed => { });
     setTimeout(() => {
       disposable.unsubscribe();
     }, 10000);

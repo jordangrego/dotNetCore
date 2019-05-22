@@ -37,6 +37,18 @@ export class RestClientService {
     return this.http.delete<ReturnModel>(environment.endpoint + urlApi, this.getHttpOption());
   }
 
+  public doGetDowload(urlApi: string): Observable<Blob> {
+    const headers = new HttpHeaders().set('authorization', 'Bearer '+ localStorage.getItem('token'));
+    return this.http.get<Blob>(environment.endpoint + urlApi, {headers,});
+  }
+
+  public async downloadResource(urlApi: string): Promise<Blob> {
+    const headers = new HttpHeaders().set('authorization', 'Bearer '+ localStorage.getItem('token'));
+    const file =  await this.http.get<Blob>(environment.endpoint + urlApi,
+      {headers, responseType: 'blob' as 'json'}).toPromise();
+    return file;
+  }
+
   private getHttpOption() {
     let httpOptions = {
       headers: new HttpHeaders({

@@ -15,6 +15,7 @@ import { ClienteModel } from "src/app/models/clienteModel";
 })
 export class ClienteComponent implements OnInit {
   private dataClientes: ClienteModel[];
+  private listaTipoPessoa = [{ idTipo: 'F', desc: 'Física' }, { idTipo: 'J', desc: 'Jurídica' },];
   
 
   constructor(
@@ -66,5 +67,11 @@ export class ClienteComponent implements OnInit {
     setTimeout(()=>{
         disposable.unsubscribe();
     },10000);
+  }
+
+  getTipoPessoaDesc(tipo : string) : string {
+    return this.listaTipoPessoa.filter(function (obj) {
+      return obj.idTipo !== tipo;
+    })[0].desc;
   }
 }

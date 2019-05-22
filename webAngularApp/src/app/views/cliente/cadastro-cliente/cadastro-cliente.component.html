@@ -12,28 +12,39 @@
       <div class="card-body">
         <form [formGroup]="clienteForm" novalidate>
           <div class="row">
-            <div class="col-md">
+            <div class="col-md-2">
               <app-input-container errorMessage="" label="Data Cadastro">
                 <input class="form-control" formControlName="cadastro" placeholder="Data Cadastro" autocomplete="off"
                   [value]="cliente.dataCadastro | amDateFormat:'DD/MM/YYYY'">
               </app-input-container>
             </div>
+            <div class="col-md-2">
+              <app-select-constainer errorMessage="Campo obrigatório" label="Tipo Pessoa">
+                <select class="form-control" [(ngModel)]="cliente.tipoPessoa" formControlName="tipoPessoa" (change)="cliente.cpfCnpj = ''">
+                  <option value="" [selected]="cliente.tipoPessoa == ''">Selecione</option>
+                  <option *ngFor="let tipo of listaTipoPessoa" [(value)]="tipo.idTipo"
+                    [selected]="tipo.idTipo == cliente.tipopessoa">{{tipo.desc}}</option>
+                </select>
+              </app-select-constainer>
+            </div>
+            <div class="col-md-8">
+              <app-input-container errorMessage="Campo obrigatório e valor inválido" label="Identificação">
+                <input class="form-control" formControlName="cpfCnpj" placeholder="Identificação" autocomplete="off"
+                  [(ngModel)]="cliente.cpfCnpj" [textMask]="{mask: cliente.tipoPessoa == 'F' ? maskCpf : maskCnpj}"
+                  [readonly]="cliente.tipoPessoa == ''">
+              </app-input-container>
+            </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md">
               <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
                 <input class="form-control" formControlName="name" placeholder="Nome" autocomplete="off"
                   [(ngModel)]="cliente.nome">
               </app-input-container>
             </div>
-            <div class="col-md-6">
-              <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="CpfCnpj">
-                <input class="form-control" formControlName="cpfcnpj" placeholder="CPF - CNPJ" autocomplete="off"
-                  [(ngModel)]="cliente.cpfCnpj">
-              </app-input-container>
-            </div>
           </div>
         </form>
+        <pre>{{ cliente | json }}</pre>
         <div class="row">
           <div class="col-md">
             <div class="card ml-1 mr-1">

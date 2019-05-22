@@ -13,5 +13,6 @@ namespace libApp.Entities
     {
         public List<Pessoa> ListaPessoa { get; set; }
         public List<Cliente> ListaClientes { get; set; }
+        public List<ArquivoFile> ListaArquivos { get; set; }
     }
 }

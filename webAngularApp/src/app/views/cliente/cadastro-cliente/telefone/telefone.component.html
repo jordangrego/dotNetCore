@@ -8,21 +8,21 @@
   <div *ngIf="isEdit">
     <div class="row">
       <div class="col-md-3">
-        <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
-          <input class="form-control" formControlName="codPais" placeholder="codPais" autocomplete="off"
+        <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Cód. País">
+          <input class="form-control" maxlength="3" formControlName="codPais" placeholder="codPais" autocomplete="off"
             [(ngModel)]="telefoneEdit.codPais">
         </app-input-container>
       </div>
       <div class="col-md-3">
-        <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Número">
-          <input class="form-control" formControlName="ddd" placeholder="ddd" autocomplete="off"
+        <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="DDD">
+          <input class="form-control" maxlength="2" formControlName="ddd" placeholder="ddd" autocomplete="off"
             [(ngModel)]="telefoneEdit.ddd">
         </app-input-container>
       </div>
       <div class="col-md-3">
         <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Número">
           <input class="form-control" formControlName="numeroTelefone" placeholder="numero" autocomplete="off"
-            [(ngModel)]="telefoneEdit.numeroTelefone">
+            [(ngModel)]="telefoneEdit.numeroTelefone" [textMask]="{mask: maskTel}">
         </app-input-container>
       </div>
     </div>

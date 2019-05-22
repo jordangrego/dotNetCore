@@ -9,6 +9,7 @@ import { AppRoutingModule, routingComponents } from "./app.routing";
 
 import { BootstrapModalModule } from "ng6-bootstrap-modal";
 import { MomentModule } from 'angular2-moment';
+import { TextMaskModule } from 'angular2-text-mask';
 
 import { AppComponent } from "./app.component";
 import { PessoaComponent } from "./views/pessoa/pessoa.component";
@@ -25,6 +26,8 @@ import { RadioComponent } from './radio/radio.component';
 import { CadastroClienteComponent } from './views/cliente/cadastro-cliente/cadastro-cliente.component';
 import { EnderecoComponent } from './views/cliente/cadastro-cliente/endereco/endereco.component';
 import { TelefoneComponent } from './views/cliente/cadastro-cliente/telefone/telefone.component';
+import { SelectComponent } from './select/select.component';
+import { UploadFileComponent } from './views/upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { TelefoneComponent } from './views/cliente/cadastro-cliente/telefone/tel
     RadioComponent,
     CadastroClienteComponent,
     EnderecoComponent,
-    TelefoneComponent
+    TelefoneComponent,
+    SelectComponent,
+    UploadFileComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,8 @@ import { TelefoneComponent } from './views/cliente/cadastro-cliente/telefone/tel
     HttpClientModule,
     AppRoutingModule,
     BootstrapModalModule,
-    MomentModule
+    MomentModule,
+    TextMaskModule
   ],
   providers: [],
   entryComponents: [ConfirmComponent, AlertComponent],

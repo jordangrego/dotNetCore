@@ -14,40 +14,41 @@
         </app-input-container>
       </div>
       <div class="col-md-3">
-          <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Número">
-              <input class="form-control" formControlName="numeroLogradouro" placeholder="Número" autocomplete="off"
-                [(ngModel)]="enderecoEdit.numeroLogradouro">
-            </app-input-container>
+        <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Número">
+          <input class="form-control" formControlName="numeroLogradouro" placeholder="Número" autocomplete="off"
+            [(ngModel)]="enderecoEdit.numeroLogradouro">
+        </app-input-container>
       </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-          <app-input-container errorMessage="" label="Complemento">
-            <input class="form-control" formControlName="complemento" placeholder="Complemento" autocomplete="off"
-              [(ngModel)]="enderecoEdit.complemento">
-          </app-input-container>
-        </div>
-        <div class="col-md-6">
-            <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Município">
-                <input class="form-control" formControlName="municipio" placeholder="Município" autocomplete="off"
-                  [(ngModel)]="enderecoEdit.municipio">
-              </app-input-container>
-        </div>
+      <div class="col-md-6">
+        <app-input-container errorMessage="" label="Complemento">
+          <input class="form-control" formControlName="complemento" placeholder="Complemento" autocomplete="off"
+            [(ngModel)]="enderecoEdit.complemento">
+        </app-input-container>
       </div>
+      <div class="col-md-6">
+        <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Município">
+          <input class="form-control" formControlName="municipio" placeholder="Município" autocomplete="off"
+            [(ngModel)]="enderecoEdit.municipio">
+        </app-input-container>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-6">
-          <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="CEP">
-              <input class="form-control" formControlName="cep" placeholder="CEP" autocomplete="off"
-                [(ngModel)]="enderecoEdit.cep">
-            </app-input-container>
+        <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="CEP">
+          <input class="form-control" formControlName="cep" placeholder="CEP" autocomplete="off"
+            [(ngModel)]="enderecoEdit.cep" [textMask]="{mask: maskCep}">
+        </app-input-container>
       </div>
       <div class="col-md-2">
         <div class="form-group">
-          <label>UF</label>
-          <select class="form-control" [(ngModel)]="enderecoEdit.uf" formControlName="uf">
-            <option value="">Selecione</option>
-            <option *ngFor="let uf of listaUf" (value)="uf" >{{uf}}</option>
-          </select>
+          <app-select-constainer errorMessage="Campo obrigatório" label="UF">
+            <select class="form-control" [(ngModel)]="enderecoEdit.uf" formControlName="uf">
+              <option value="">Selecione</option>
+              <option *ngFor="let uf of listaUf" (value)="uf" [selected]="enderecoEdit.uf == uf">{{uf}}</option>
+            </select>
+          </app-select-constainer>
         </div>
       </div>
     </div>
@@ -55,7 +56,8 @@
       <div class="col-md">
         <button type="button" class="btn btn-danger btn-sm float-right ml-1" (click)="isEdit=false">Cancelar<i
             class="fa fa-cancel"></i></button>
-        <button type="button" class="btn btn-info btn-sm float-right" (click)="salvarEndereco()" [disabled]="!enderecoForm.valid">Salvar
+        <button type="button" class="btn btn-info btn-sm float-right" (click)="salvarEndereco()"
+          [disabled]="!enderecoForm.valid">Salvar
           Endereço&nbsp;<i class="fa fa-pencil-square"></i></button>
       </div>
     </div>

@@ -18,7 +18,7 @@ import { TelefoneModel } from "src/app/models/telefoneModel";
   styleUrls: ["./telefone.component.css"]
 })
 export class TelefoneComponent implements OnInit {
-  s;
+  public maskTel = ['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
   @Input() telefonesCliente: TelefoneModel[];
   @Output() removeTelefone = new EventEmitter();
@@ -79,15 +79,14 @@ export class TelefoneComponent implements OnInit {
     this.telefoneEdit = new TelefoneModel();
   }
 
-  public excluirEndereco(telefone: TelefoneModel) {
+  public excluirTelefone(telefone: TelefoneModel) {
     let disposable = this.dialogService
       .addDialog(ConfirmComponent, {
         title: "Excluir",
-        message: "Confirma excluir Endereço?"
+        message: "Confirma excluir telefone?"
       })
       .subscribe(isConfirmed => {
         if (isConfirmed) {
-          console.log("chegou remover");
           this.removeTelefone.emit(telefone);
         }
       });

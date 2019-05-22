@@ -50,6 +50,7 @@ namespace libApp.Services
                 clienteUpdate.Nome = cliente.Nome;
                 clienteUpdate.DataCadastro = cliente.DataCadastro;
                 clienteUpdate.CpfCnpj = cliente.CpfCnpj;
+                clienteUpdate.TipoPessoa = cliente.TipoPessoa;
 
                 clienteUpdate.ListaEnderecos = cliente.ListaEnderecos;
                 clienteUpdate.ListaTelefones = cliente.ListaTelefones;

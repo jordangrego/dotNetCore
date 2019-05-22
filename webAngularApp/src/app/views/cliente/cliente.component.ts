@@ -20,7 +20,6 @@ export class ClienteComponent implements OnInit {
 
   constructor(
     private clienteService: ClienteService,
-    
     private dialogService:DialogService,
     private router: Router
   ) {}
@@ -71,7 +70,7 @@ export class ClienteComponent implements OnInit {
 
   getTipoPessoaDesc(tipo : string) : string {
     return this.listaTipoPessoa.filter(function (obj) {
-      return obj.idTipo !== tipo;
+      return obj.idTipo == tipo;
     })[0].desc;
   }
 }

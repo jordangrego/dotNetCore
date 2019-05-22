@@ -34,7 +34,7 @@ export class CadastroClienteComponent implements OnInit {
   private listaTipoPessoa = [{ idTipo: 'F', desc: 'Física' }, { idTipo: 'J', desc: 'Jurídica' },];
 
   public maskCpf = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
-  public maskCnpj = [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
+  public maskCnpj = [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/];
 
   constructor(
     private clienteService: ClienteService,

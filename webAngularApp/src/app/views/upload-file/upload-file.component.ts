@@ -87,9 +87,10 @@ export class UploadFileComponent implements OnInit {
   }
 
   readThis(inputValue: any): void {
-    this.isReadingFile = true;
+    
     var file: File = inputValue.files[0];
     if (file.size <= (this.limiteTamanhoArquivoMegas * 1024 * 1024)) {
+      this.isReadingFile = true;
       this.nomeArquivoEnvio = file.name;
       var myReader: FileReader = new FileReader();
 

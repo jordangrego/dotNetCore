@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using libApp.Entities;
+﻿using libApp.Entities;
 using libApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using webapiApp.Controllers.Pattern;
 using webapiApp.Model;
 

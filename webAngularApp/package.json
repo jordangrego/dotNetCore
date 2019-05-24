@@ -24,10 +24,12 @@
     "angular2-text-mask": "^9.0.0",
     "angular2-uuid": "^1.1.1",
     "bootstrap": "^4.3.1",
+    "chart.js": "^2.8.0",
     "core-js": "^2.5.4",
     "file-saver": "^2.0.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
+    "ng2-charts": "^2.2.3",
     "ng6-bootstrap-modal": "^1.0.2",
     "zone.js": "~0.8.26"
   },

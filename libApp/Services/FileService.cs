@@ -58,6 +58,7 @@ namespace libApp.Services
             List<ArquivoFile> listaArquivos = this.ListarArquivos().ToList();
             listaArquivos = listaArquivos.Where(x => x.IdFile != idFile).ToList();
             this.GravaBaseArquivo(listaArquivos);
+            UtilIO.DeleteArquivoFileSystem(pathArquivos + arquivoFile.NomeFile);
             return arquivoFile;
         }
 

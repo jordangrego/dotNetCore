@@ -74,7 +74,7 @@ export class EnderecoComponent implements OnInit {
   editarEndereco(endereco: EnderecoModel) {
     this.isEdit = true;
     this.enderecoForm.reset();
-    this.enderecoEdit = JSON.parse(JSON.stringify(endereco));;
+    this.enderecoEdit = JSON.parse(JSON.stringify(endereco));
   }
 
   salvarEndereco() {

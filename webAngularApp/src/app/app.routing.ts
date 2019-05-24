@@ -8,6 +8,7 @@ import { PessoaComponent } from "./views/pessoa/pessoa.component";
 import { ClienteComponent } from "./views/cliente/cliente.component";
 import { CadastroClienteComponent } from "./views/cliente/cadastro-cliente/cadastro-cliente.component";
 import { UploadFileComponent } from "./views/upload-file/upload-file.component";
+import { ChartComponent } from "./views/chart/chart.component";
 
 const routes: Routes = [
   { path: "", component: AppComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: "cadastro-cliente", component: CadastroClienteComponent },
   { path: "cadastro-cliente/:id", component: CadastroClienteComponent },
   { path: "upload-files", component: UploadFileComponent },
+  { path: "chart", component: ChartComponent },
 ];
 
 @NgModule({

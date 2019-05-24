@@ -10,6 +10,7 @@ import { AppRoutingModule, routingComponents } from "./app.routing";
 import { BootstrapModalModule } from "ng6-bootstrap-modal";
 import { MomentModule } from 'angular2-moment';
 import { TextMaskModule } from 'angular2-text-mask';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from "./app.component";
 import { PessoaComponent } from "./views/pessoa/pessoa.component";
@@ -28,6 +29,7 @@ import { EnderecoComponent } from './views/cliente/cadastro-cliente/endereco/end
 import { TelefoneComponent } from './views/cliente/cadastro-cliente/telefone/telefone.component';
 import { SelectComponent } from './select/select.component';
 import { UploadFileComponent } from './views/upload-file/upload-file.component';
+import { ChartComponent } from './views/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { UploadFileComponent } from './views/upload-file/upload-file.component';
     EnderecoComponent,
     TelefoneComponent,
     SelectComponent,
-    UploadFileComponent
+    UploadFileComponent,
+    ChartComponent    
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { UploadFileComponent } from './views/upload-file/upload-file.component';
     AppRoutingModule,
     BootstrapModalModule,
     MomentModule,
-    TextMaskModule
+    TextMaskModule,
+    ChartsModule
   ],
   providers: [],
   entryComponents: [ConfirmComponent, AlertComponent],

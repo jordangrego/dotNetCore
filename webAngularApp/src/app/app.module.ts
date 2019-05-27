@@ -34,6 +34,9 @@ import { SelectComponent } from './select/select.component';
 import { UploadFileComponent } from './views/upload-file/upload-file.component';
 import { ChartComponent } from './views/chart/chart.component';
 import { ToastComponent } from './views/toast/toast.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { UsuariosComponent } from './views/admin/usuarios/usuarios.component';
+import { CadastroUsuarioComponent } from './views/admin/usuarios/cadastro-usuario/cadastro-usuario.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,10 @@ import { ToastComponent } from './views/toast/toast.component';
     SelectComponent,
     UploadFileComponent,
     ChartComponent,
-    ToastComponent    
+    ToastComponent,
+    BreadcrumbComponent,
+    UsuariosComponent,
+    CadastroUsuarioComponent    
   ],
   imports: [
     BrowserModule,

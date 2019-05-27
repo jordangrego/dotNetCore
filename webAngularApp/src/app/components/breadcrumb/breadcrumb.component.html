@@ -1,0 +1,9 @@
+<nav aria-label="breadcrumb" *ngIf="isLoggedIn()">
+    <ol class="breadcrumb">
+      <li><a routerLink="" class="breadcrumb-item">Home</a></li>
+      <li *ngFor="let breadcrumb of breadcrumbs" class="breadcrumb-item">
+        <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
+      </li>
+    </ol>
+  </nav>
+  <pre [hidden]="true">{{ breadcrumbs | json }}</pre>

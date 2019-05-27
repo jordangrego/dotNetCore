@@ -13,19 +13,28 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          Cadastros
+          <li class="fa fa-gears mr-2"></li>Config
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['/usuario']" skipLocationChange><li class="fa fa-user-circle-o mr-2"></li>Usuários</a>
+          </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <li class="fa fa-folder-o mr-2"></li>Cadastros
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" [routerLink]="['/pessoa']" skipLocationChange>Pessoa</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" [routerLink]="['/cliente']" skipLocationChange>Cliente</a>
-          <a class="dropdown-item" [routerLink]="['/upload-files']" skipLocationChange>Arquivos</a>
-          <a class="dropdown-item" [routerLink]="['/chart']" skipLocationChange>Gráficos</a>
-          <a class="dropdown-item" [routerLink]="['/toast']" skipLocationChange>Toast</a>
+          <a class="dropdown-item" [routerLink]="['/cliente']" skipLocationChange><li class="fa fa-address-book mr-2"></li>Cliente</a>
+          <a class="dropdown-item" [routerLink]="['/upload-files']" skipLocationChange><li class="fa fa-upload mr-2"></li>Arquivos</a>
+          <a class="dropdown-item" [routerLink]="['/chart']" skipLocationChange><li class="fa fa-bar-chart mr-2"></li>Gráficos</a>
+          <a class="dropdown-item" [routerLink]="['/toast']" skipLocationChange><li class="fa fa-exclamation mr-2"></li>Toast</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" (click)="sair()">Sair</a>
+        <a class="nav-link" href="#" (click)="sair()"><li class="fa fa-external-link mr-2"></li>Sair</a>
       </li>
     </ul>
   </div>

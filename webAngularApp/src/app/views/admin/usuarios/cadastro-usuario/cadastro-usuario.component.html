@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md">
+    <button type="button" class="btn btn-info float-right" [routerLink]="['/usuario']"
+      skipLocationChange>Voltar</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md">
+    <div class="card mt-2">
+      <div class="card-header">
+        Cadastro de Usuário
+      </div>
+      <div class="card-body">
+        <form [formGroup]="usuarioForm" novalidate>
+          <div class="form-group">
+            <label for="txtNome">Nome</label>
+            <input type="text" class="form-control" id="txtNome" formControlName="nome" placeholder="Informe o nome..." >
+          </div>
+          <div class="form-group">
+            <label for="txtEmail">E-Mail</label>
+            <input type="email" class="form-control" id="txtEmail" formControlName="email"
+              placeholder="Informe o e-mail" >
+          </div>
+          <div class="row" [hidden]="true">
+            <div class="col-md-6 offset-md-3">
+              <div class="card">
+                <h5 class="card-header">Dados de Acesso</h5>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="txtUsername">Username</label>
+                        <input type="text" class="form-control" id="txtUsername" formControlName="username" 
+                          placeholder="Informe o username...">
+                      </div>
+                      <hr />
+                      <div class="form-group">
+                        <label for="txtPass">Senha</label>
+                        <input type="password" class="form-control" id="txtPass" placeholder="">
+                      </div>
+                      <div class="form-group">
+                        <label for="txtConfirmPass">Confirmação de Senha</label>
+                        <input type="text" class="form-control" id="txtConfirmPass" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="card-footer text-muted">
+        <a class="btn btn-info float-right ml-1" [routerLink]="['/usuario']" skipLocationChange>Cancelar</a>
+        <button (click)="checkUsuario(usuarioForm.value)" class="btn btn-primary float-right"
+          [disabled]="!usuarioForm.valid">
+          <i class="fa fa-floppy-o"></i> Salvar Usuário
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+<pre>{{ usuario | json }}</pre>

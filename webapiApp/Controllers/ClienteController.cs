@@ -39,7 +39,7 @@ namespace webapiApp.Controllers
 
         // PUT api/values/5
         [HttpPut]
-        public ActionResult<ReturnModel> Put (int id, [FromBody] Cliente cliente) {
+        public ActionResult<ReturnModel> Put ([FromBody] Cliente cliente) {
             return this.GetSuccessReturn(this.clienteService.Update(cliente));
         }
 

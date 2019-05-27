@@ -10,6 +10,8 @@ import { CadastroClienteComponent } from "./views/cliente/cadastro-cliente/cadas
 import { UploadFileComponent } from "./views/upload-file/upload-file.component";
 import { ChartComponent } from "./views/chart/chart.component";
 import { ToastComponent } from "./views/toast/toast.component";
+import { UsuariosComponent } from "./views/admin/usuarios/usuarios.component";
+import { CadastroUsuarioComponent } from "./views/admin/usuarios/cadastro-usuario/cadastro-usuario.component";
 
 const routes: Routes = [
   { path: "", component: AppComponent },
@@ -25,6 +27,9 @@ const routes: Routes = [
   { path: "upload-files", component: UploadFileComponent },
   { path: "chart", component: ChartComponent },
   { path: "toast", component: ToastComponent },
+  { path: "usuario", component: UsuariosComponent },
+  { path: "cadastro-usuario", component: CadastroUsuarioComponent },
+  { path: "cadastro-usuario/:id", component: CadastroUsuarioComponent },
 ];
 
 @NgModule({

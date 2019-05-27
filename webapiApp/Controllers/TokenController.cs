@@ -1,3 +1,5 @@
+using libApp.Entities;
+using libApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +13,8 @@ namespace JWT.Controllers
 {
     [Route ("api/[controller]")]
     public class TokenController : Controller {
+        private UsuarioService usuarioService = new UsuarioService();
+
         private IConfiguration _config;
 
         public TokenController (IConfiguration config) {
@@ -46,9 +50,18 @@ namespace JWT.Controllers
         private UserModel Authenticate (LoginModel login) {
             UserModel user = null;
 
-            if (login.Username == "mario" && login.Password == "secret") {
-                user = new UserModel { Name = "Mario Rossi", Email = "mario.rossi@domain.com" };
+            if (login.Username == "admin" && login.Password == "admin") {
+                user = new UserModel { Name = "Administrator", Email = "admin@admin.com" };
+            } else
+            {
+                Usuario usuario = usuarioService.getUsuario(login.Username, login.Password);
+
+                if (usuario != null)
+                {
+                    user = new UserModel { Name = usuario.UserName, Email = usuario.Email };
+                }
             }
+
             return user;
         }
     }

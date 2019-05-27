@@ -40,7 +40,6 @@
 <div class="row mt-1">
   <div class="col-md">
     <table class="table table-striped table-hover">
-      <caption>Lista de Telefones</caption>
       <thead class="thead-dark">
         <tr>
           <th scope="col" class="invisible">idTelefone</th>
@@ -59,7 +58,7 @@
           <td *ngIf="!isEdit">
             <button type="button" class="btn btn-info btn-sm mr-1" (click)="editarTelefone(telefone)"><i
                 class="fa fa-edit"></i></button>
-            <button type="button" class="btn btn-info btn-sm" (click)="excluirTelefone(telefone)"><i
+            <button type="button" class="btn btn-danger btn-sm" (click)="excluirTelefone(telefone)"><i
                 class="fa fa-remove"></i></button>
           </td>
         </tr>

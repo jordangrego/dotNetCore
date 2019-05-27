@@ -32,3 +32,30 @@
     </div>
   </div>
 </div>
+
+<div class="row mt-2">
+  <div class="col-md">
+    <div class="card text-center">
+      <div class="card-header">
+        Gráfico Barra
+        <button type="button" class="btn btn-info float-right" (click)="updateLineChart()"><i
+            class="fa fa-refresh"></i></button>
+      </div>
+      <div class="card-body">
+        <div style="display: block;">
+          <div style="display: block;">
+            <canvas baseChart width="400" height="200"
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins" >
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

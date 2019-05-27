@@ -22,7 +22,10 @@ import { BarChartResponseModel } from 'src/app/models/barChartResponseModel';
 })
 export class ChartComponent implements OnInit {
 
-  
+  /***************************************** */
+  /* https://www.npmjs.com/package/ng2-charts */
+  /***************************************** */
+
   // PIE ***********************
   public pieChartColors: Array<any> = [
     {
@@ -89,7 +92,7 @@ export class ChartComponent implements OnInit {
   public barChartData: ChartDataSets[] = [
     { data: [], label: '' }
   ];
- 
+
   public dadosBar: BarChartResponseModel[];
   public dataBar: any[];
 
@@ -117,11 +120,11 @@ export class ChartComponent implements OnInit {
       }
 
       // trata cores
-      let backgrounds : any = [];
+      let backgrounds: any = [];
       for (var c = 0; c < this.cores.length; c++) {
         let background: any = { backgroundColor: [] };
 
-        for(var cb = 0; cb < this.dadosBar.length; cb++) {
+        for (var cb = 0; cb < this.dadosBar.length; cb++) {
           background.backgroundColor.push(JSON.parse(JSON.stringify(this.cores[c])));
         }
 
@@ -131,6 +134,61 @@ export class ChartComponent implements OnInit {
       this.barChartColors = backgrounds;
       this.barChartLabels = labelBar;
       this.barChartData = JSON.parse(JSON.stringify(this.dataBar));
+    });
+  }
+
+  // ***************************************************************
+  public lineChartData: ChartDataSets[] = [
+    { data: [], label: '' },
+  ];
+  public lineChartLabels: Label[] = [];
+  public lineChartOptions: ChartOptions = {
+    responsive: true, 
+    elements : { line : { tension : 0 } } // seta a linha como reta (de 0 a 0.4)
+  };
+  public lineChartColors: Color[] = [
+    {
+      borderColor: 'grey',
+      backgroundColor: 'rgba(166, 145, 41, 0.5)',
+    },
+    {
+      borderColor: 'grey',
+      backgroundColor: 'rgba(140, 92, 74, 0.5)',
+    },
+  ];
+  public lineChartLegend = true;
+  public lineChartType = 'line';
+  public lineChartPlugins = [];
+
+  public dadosLine: BarChartResponseModel[];
+  public dataLine: any[];
+
+  updateLineChart() {
+    this.barChartService.getBarChart().subscribe(data => {
+      this.dadosLine = data.data;
+      this.dataLine = [];
+      let labelLine = [];
+
+      if (this.dadosLine.length > 0) {
+        let qtdSeries: number = this.dadosBar[0].listaValueData.length;
+        for (var s = 0; s < qtdSeries; s++) {
+          let serie: ChartDataSets = { data: [], label: 'Serie ' + (s) };
+          this.dataLine.push(serie);
+        }
+      }
+
+      for (var i = 0; i < this.dadosLine.length; i++) {
+        labelLine.push(JSON.parse(JSON.stringify(this.dadosLine[i].labelData)));
+
+        for (var j = 0; j < this.dadosLine[i].listaValueData.length; j++) {
+          this.dataLine[j].data.push(JSON.parse(JSON.stringify(this.dadosLine[i].listaValueData[j])));
+        }
+      }
+
+      
+
+      this.lineChartLabels = labelLine;
+      this.lineChartData = JSON.parse(JSON.stringify(this.dataLine));
     });
   }
   // ***************************************************************
@@ -145,8 +203,23 @@ export class ChartComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.updatePieChart();
+    this.updatePieChart();
     this.updateBarChart();
+    this.updateLineChart();
+  }
+
+
+  public hexToRgbA(hex: string): string {
+    var c;
+    if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+      c = hex.substring(1).split('');
+      if (c.length == 3) {
+        c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+      }
+      c = '0x' + c.join('');
+      return 'rgba(' + [(c >> 16) & 255, (c >> 8) & 255, c & 255].join(',') + ',1)';
+    }
+    throw new Error('Bad Hex');
   }
 
 }

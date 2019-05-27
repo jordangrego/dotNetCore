@@ -2,7 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 
-import {CommonModule} from '@angular/common'
+import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 import { AppRoutingModule, routingComponents } from "./app.routing";
@@ -11,6 +11,9 @@ import { BootstrapModalModule } from "ng6-bootstrap-modal";
 import { MomentModule } from 'angular2-moment';
 import { TextMaskModule } from 'angular2-text-mask';
 import { ChartsModule } from 'ng2-charts';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from "./app.component";
 import { PessoaComponent } from "./views/pessoa/pessoa.component";
@@ -30,6 +33,7 @@ import { TelefoneComponent } from './views/cliente/cadastro-cliente/telefone/tel
 import { SelectComponent } from './select/select.component';
 import { UploadFileComponent } from './views/upload-file/upload-file.component';
 import { ChartComponent } from './views/chart/chart.component';
+import { ToastComponent } from './views/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,8 @@ import { ChartComponent } from './views/chart/chart.component';
     TelefoneComponent,
     SelectComponent,
     UploadFileComponent,
-    ChartComponent    
+    ChartComponent,
+    ToastComponent    
   ],
   imports: [
     BrowserModule,
@@ -61,7 +66,9 @@ import { ChartComponent } from './views/chart/chart.component';
     BootstrapModalModule,
     MomentModule,
     TextMaskModule,
-    ChartsModule
+    ChartsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   entryComponents: [ConfirmComponent, AlertComponent],

@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^6.1.0",
+    "@angular/animations": "^6.1.10",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
     "@angular/core": "^6.1.0",
@@ -31,6 +31,7 @@
     "jquery": "^3.4.1",
     "ng2-charts": "^2.2.3",
     "ng6-bootstrap-modal": "^1.0.2",
+    "ngx-toastr": "^10.0.4",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

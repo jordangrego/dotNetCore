@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-md">
+    <div class="card">
+      <div class="card-header">
+        Toast
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md">
+            <div class="form-group">
+              <label for="txtToast">Texto do Toast</label>
+              <input type="text" class="form-control" id="txtToast" aria-describedby="emailHelp"
+                [(ngModel)]="textoToast" placeholder="Digite o texto do Toast...">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <div class="form-group">
+              <label for="radioToast" class="mr-2">Texto do Toast</label>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="toastRadioSuccess" name="toastRadio" class="custom-control-input"
+                  value="success" [(ngModel)]="radioToast">
+                <label class="custom-control-label" for="toastRadioSuccess">Success</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="toastRadioWarning" name="toastRadio" class="custom-control-input"
+                  value="warning" [(ngModel)]="radioToast">
+                <label class="custom-control-label" for="toastRadioWarning">Warning</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="toastRadioError" name="toastRadio" class="custom-control-input" value="error"
+                  [(ngModel)]="radioToast">
+                <label class="custom-control-label" for="toastRadioError">Error</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="toastRadioInfo" name="toastRadio" class="custom-control-input" value="info"
+                  [(ngModel)]="radioToast">
+                <label class="custom-control-label" for="toastRadioInfo">Info</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        <div class="row">
+          <div class="col-md">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch" [(ngModel)]="isToastActive">
+              <label class="custom-control-label" for="customSwitch">Ativar Botão Toast</label>
+            </div>
+          </div>
+          <div class="col-md">
+            <button type="button" class="btn btn-primary float-right" (click)="showToast()"
+              [disabled]="!isToastActive">Executar Toast</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

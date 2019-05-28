@@ -12,6 +12,7 @@ import { ChartComponent } from "./views/chart/chart.component";
 import { ToastComponent } from "./views/toast/toast.component";
 import { UsuariosComponent } from "./views/admin/usuarios/usuarios.component";
 import { CadastroUsuarioComponent } from "./views/admin/usuarios/cadastro-usuario/cadastro-usuario.component";
+import { HtmlEditorComponent } from "./views/html-editor/html-editor.component";
 
 const routes: Routes = [
   { path: "", component: AppComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: "usuario", component: UsuariosComponent },
   { path: "cadastro-usuario", component: CadastroUsuarioComponent },
   { path: "cadastro-usuario/:id", component: CadastroUsuarioComponent },
+  { path: "html-editor", component: HtmlEditorComponent },
 ];
 
 @NgModule({

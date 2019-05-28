@@ -14,6 +14,7 @@ import { ChartsModule } from 'ng2-charts';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { AppComponent } from "./app.component";
 import { PessoaComponent } from "./views/pessoa/pessoa.component";
@@ -37,6 +38,7 @@ import { ToastComponent } from './views/toast/toast.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { UsuariosComponent } from './views/admin/usuarios/usuarios.component';
 import { CadastroUsuarioComponent } from './views/admin/usuarios/cadastro-usuario/cadastro-usuario.component';
+import { HtmlEditorComponent } from './views/html-editor/html-editor.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { CadastroUsuarioComponent } from './views/admin/usuarios/cadastro-usuari
     ToastComponent,
     BreadcrumbComponent,
     UsuariosComponent,
-    CadastroUsuarioComponent    
+    CadastroUsuarioComponent,
+    HtmlEditorComponent    
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import { CadastroUsuarioComponent } from './views/admin/usuarios/cadastro-usuari
     TextMaskModule,
     ChartsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AngularEditorModule
   ],
   providers: [],
   entryComponents: [ConfirmComponent, AlertComponent],

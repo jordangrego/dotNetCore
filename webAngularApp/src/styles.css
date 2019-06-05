@@ -252,3 +252,13 @@ button.toast-close-button {
     width: 25em;
   }
 }
+
+/* *************************** */
+.badge-notify{
+  background:red;
+  position:relative;
+  color: #fff;
+  top: -10px;
+  left: -22px;
+  font-size: 8px;
+ }

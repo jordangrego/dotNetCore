@@ -29,7 +29,7 @@
     "core-js": "^2.5.4",
     "file-saver": "^2.0.2",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng2-charts": "^2.2.3",
     "ng6-bootstrap-modal": "^1.0.2",
     "ngx-toastr": "^10.0.4",
